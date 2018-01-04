@@ -7,5 +7,10 @@ module KepplerContactUs
   		ContactMailer.contact(cliente)
   	end
 
+  	def admin
+  		cliente = Message.new(name:"Jonh Smith", company:"Slice Group", email: "info@slicegroup.xyz", phone:"02694166481" )
+  		ContactMailer.admin(cliente)
+  	end
+
   end
 end

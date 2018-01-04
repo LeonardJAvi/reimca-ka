@@ -9,7 +9,7 @@ class CreateWorks < ActiveRecord::Migration
       t.string :contractor
       t.string :duration
       t.string :image
-
+      t.boolean :rate
       t.timestamps null: false
     end
   end

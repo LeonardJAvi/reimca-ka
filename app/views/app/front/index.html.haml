@@ -131,10 +131,9 @@
 		%p#description-experience.color Mantenemos como norte el cumplimiento de las actividades, respetando la calidad en los trabajos
 	.container
 		.row
-			-count = 0
-			-@works.reverse.each do |work|
-				-count += 1
-				-if count <= 3
+			-# -count = 0
+			-@works.each do |work|
+				-if work.rate == true 
 					.col-xs-12.col-sm-12.col-md-12.col-lg-4
 						.card
 							= link_to app_projectdetails_path(work.id) do

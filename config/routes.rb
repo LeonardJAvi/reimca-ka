@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   get '/services/tank', to: 'app/front#tank', as: :app_tank
   get '/projects/details/:work_id', to: 'app/front#projectdetails', as: :app_projectdetails
   get '/projects/all', to: 'app/front#projects', as: :app_projects
+  
   post 'admin/works/state', as: 'admin_work_state' 
   get "app/front/:type_project_id", to: "app/front#type_project", as: :app_front_type_project
  
   devise_for :users, skip: KepplerConfiguration.skip_module_devise
+
+  get '/rate/:work_id', to: 'admin/works#rate', as: :admin_works_rate
 
   namespace :admin do
     resources :works do

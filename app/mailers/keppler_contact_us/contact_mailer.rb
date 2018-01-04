@@ -10,5 +10,15 @@ module KepplerContactUs
         subject: "Solicitud de Contacto | REIMCA"
       )
     end
+    def admin(client)
+      @client = client
+      mailer_to = KepplerContactUs::MessageSetting.first.mailer_to
+      mailer_from = KepplerContactUs::MessageSetting.first.mailer_from
+      mail(
+        from: mailer_from,
+        to: mailer_to,
+        subject: "Solicitud de Contacto | REIMCA"
+      )
+    end
   end
 end

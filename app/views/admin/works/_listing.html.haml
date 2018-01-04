@@ -29,6 +29,14 @@
 		= link_to '', admin_work_path(work, search: @query), remote: true, class: 'show-row'
 		%span
 			= work.type_project.name
+	%td.center
+		-if work.rate.nil?
+			= link_to admin_works_rate_path(work.id), class: 'btn-floating waves-effect btn-flat', title: 'Rate' do
+				= material_icon.md_24.grade.css_class('md-dark grade')
+		-else
+			= link_to admin_works_rate_path(work.id), class: 'btn-floating waves-effect center btn-flat', title: 'Rate' do
+				= material_icon.md_24.grade.css_class('rate')
+
 	- if can? :show, Work
 		%td.center.btn-w5
 			= link_to admin_work_path(work), class: 'btn-floating waves-effect btn-flat', title: 'Show' do
@@ -45,3 +53,10 @@
 		%td.center.btn-w5{style:'padding-right: 20px'}
 			= link_to admin_work_path(work), class: 'btn-floating btn-flat tooltipped', title: 'Delete', method: :delete, data: { confirm: t('keppler.messages.data_confirm') } do
 				= material_icon.md_18.delete.css_class('md-dark')
+
+	:sass
+		i.grade:hover
+			color: #d0b005
+		i.rate
+			color: #d0b005
+		

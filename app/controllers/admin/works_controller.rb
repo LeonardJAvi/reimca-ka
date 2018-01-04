@@ -15,6 +15,24 @@ module Admin
      
     end
 
+    def rate
+     @count = 0
+     work = Work.where(id: params[:work_id]).first
+     Work.all.select{|work| @count=@count+1 if work.rate == true}
+     if work.rate
+       Work.update(params[:work_id], :rate => nil)
+       redirect_to admin_works_path, notice: "Proyecto, deseleccionado"
+
+     elsif @count >=0 && @count <=2
+       Work.update(params[:work_id], :rate => true)
+       redirect_to admin_works_path
+     else
+       Work.update(params[:work_id], :rate => nil)
+       redirect_to admin_works_path, notice: "Por favor, deselecciona un proyecto"
+     end
+
+   end
+
 
     # GET /works
     def index
@@ -94,6 +112,7 @@ module Admin
         notice: actions_messages(Work.new)
       )
     end
+ 
 
     private
 
@@ -104,7 +123,7 @@ module Admin
 
     # Only allow a trusted parameter "white list" through.
     def work_params
-      params.require(:work).permit(:title, :description, :stack_state_id, :stack_city_id, :type_project_id, :contractor, :duration, :image)
+      params.require(:work).permit(:title, :description, :stack_state_id, :stack_city_id, :type_project_id, :contractor, :duration, :image, :rate)
     end
 
     def show_history
