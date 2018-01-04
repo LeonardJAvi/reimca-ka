@@ -11,7 +11,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def extension_whitelist
-    %w(jpeg jpg)
+    %w(jpeg jpg png)
   end
 
   def content_type_whitelist

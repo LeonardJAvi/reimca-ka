@@ -123,7 +123,7 @@ module Admin
 
     # Only allow a trusted parameter "white list" through.
     def work_params
-      params.require(:work).permit(:title, :description, :stack_state_id, :stack_city_id, :type_project_id, :contractor, :duration, :image, :rate)
+      params.require(:work).permit(:title, :description, :stack_state_id, :stack_city_id, :type_project_id, :contractor, :duration, :image, :rate, :logo)
     end
 
     def show_history

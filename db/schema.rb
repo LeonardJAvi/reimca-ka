@@ -212,6 +212,7 @@ ActiveRecord::Schema.define(version: 20171221154134) do
     t.string   "duration",        limit: 255
     t.string   "image",           limit: 255
     t.boolean  "rate"
+    t.string   "logo",            limit: 255
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end

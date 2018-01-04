@@ -10,6 +10,7 @@ class CreateWorks < ActiveRecord::Migration
       t.string :duration
       t.string :image
       t.boolean :rate
+      t.string :logo
       t.timestamps null: false
     end
   end

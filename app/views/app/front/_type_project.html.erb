@@ -7,10 +7,10 @@
 					<%= image_tag work.image , class: 'img-responsive' %>
 						<div class="mask-project">
 							<div class="logo-project">
-				          		<%= work.contractor %>
+				          		<%= image_tag work.logo , class: 'img-responsive' %>
 							</div>
 				    	    <span class="title-project">
-				        		<%= work.type_project.name %>
+				        		<%= work.title %>
 				        	</span> 
 				   		</div>
 					<%end%>
@@ -27,11 +27,12 @@
 						<%= image_tag work.image, class: 'img-responsive' %>
 							<div class="mask-project">
 								<div class="logo-project">
-					          		<%= work.contractor %>
+					          		<%= image_tag work.logo , class: 'img-responsive' %>
 								</div>
 					    	    <span class="title-project">
 					        		<%= work.title %>
 					        	</span>
+
 					   		</div>
 						<%end%>
 					</div>
@@ -45,9 +46,7 @@
 				      <%= image_tag work.image, class: 'img-responsive' %>
 				      <div class="mask-project">
 				        <div class="logo-project">
-				          <%= work.contractor %>
-				          <!-- = image_tag 'img/PDVSA.png', class: 'img-responsive', id:'project-logo'
-				          -->
+		                   <%= image_tag work.logo , class: 'img-responsive' %>
 				        </div>
 				        <span class="title-project">
 				          <%= work.title %>
