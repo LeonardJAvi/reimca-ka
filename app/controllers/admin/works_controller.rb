@@ -21,14 +21,13 @@ module Admin
      Work.all.select{|work| @count=@count+1 if work.rate == true}
      if work.rate
        Work.update(params[:work_id], :rate => nil)
-       redirect_to admin_works_path, notice: "Proyecto, deseleccionado"
-
+       redirect_to admin_works_path, notice: "Unselected, work"
      elsif @count >=0 && @count <=2
        Work.update(params[:work_id], :rate => true)
        redirect_to admin_works_path
      else
        Work.update(params[:work_id], :rate => nil)
-       redirect_to admin_works_path, notice: "Por favor, deselecciona un proyecto"
+       redirect_to admin_works_path, notice: "Please, uncheck a work"
      end
 
    end
